@@ -6,7 +6,7 @@
   "author": "Matheus Rocha <matheus_rocha98@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "start": "pm2 start dist/ecosystem.config.js",
+    "start": "pm2 start ecosystem.config.js",
     "start:dev": "tsnd --transpile-only --ignore-watch node_modules --respawn --no-notify src/server.ts",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
