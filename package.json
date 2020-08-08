@@ -6,7 +6,7 @@
   "author": "Matheus Rocha <matheus_rocha98@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "start": "pm2 start ecosystem.config.js",
+    "start": "node dist/src/server.js",
     "start:dev": "tsnd --transpile-only --ignore-watch node_modules --respawn --no-notify src/server.ts",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
@@ -20,8 +20,7 @@
     "helmet": "^4.0.0",
     "http-status-codes": "^1.4.0",
     "knex": "^0.21.2",
-    "pg": "^8.3.0",
-    "pm2": "^4.4.0"
+    "pg": "^8.3.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.7",
