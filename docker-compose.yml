@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:12-alpine
+    container_name: proffy-postgres
+    restart: unless-stopped
+    ports:
+      - ${DATABASE_PORT}:5432
+    environment:
+      POSTGRES_HOST: ${DATABASE_HOST}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASS}
+      POSTGRES_DB: ${DATABASE_NAME}
+    env_file:
+      - .env
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "5"
