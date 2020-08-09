@@ -15,7 +15,7 @@ class ClassesController {
     const filters = req.query
 
     if (!filters.week_day || !filters.subject || !filters.time)
-      return res.status(BAD_REQUEST).json({ error: 'Faltando um ou mais filtros para buscar as aulas' })
+      return res.status(BAD_REQUEST).json({ message: 'Faltando um ou mais filtros para buscar as aulas' })
 
     const subject = filters.subject as string
     const week_day = filters.week_day as string
@@ -39,7 +39,7 @@ class ClassesController {
 
       return res.json(classes)
     } catch {
-      return res.status(BAD_REQUEST).json({ error: 'Erro inesperado ao consultar dados no servidor...' })
+      return res.status(BAD_REQUEST).json({ message: 'Erro inesperado ao consultar dados no servidor...' })
     }
   }
 
@@ -67,8 +67,8 @@ class ClassesController {
 
         return res.sendStatus(CREATED)
       })
-    } catch {
-      return res.status(BAD_REQUEST).json({ error: 'Erro inesperado ao tentar cadastrar aulas...' })
+    } catch (err) {
+      return res.status(BAD_REQUEST).json({ message: 'Erro inesperado ao tentar cadastrar aulas...' })
     }
   }
 }
